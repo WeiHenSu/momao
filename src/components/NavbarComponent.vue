@@ -1,6 +1,10 @@
 <template>
     <header>
         <div class="nav-fixed w-100" :class="{ fixed : checkActive}">
+            <!-- 跑馬燈 -->
+            <Vue3Marquee :duration="40">
+              <span class="marqueeText fw-bold text-white py-2 ms-5">輸入優惠碼：elden ring 即享40%優惠！！</span>
+            </Vue3Marquee>
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <router-link to="/" class="navbar-brand logo">
@@ -17,7 +21,7 @@
                             </li>
                             <!-- 查詢訂單 -->
                             <li class="nav-item">
-                                <router-link to="/userboard/qa" class="nav-link fw-bold" aria-current="page" href="#">查詢訂單</router-link>
+                                <router-link to="/userboard/search" class="nav-link fw-bold" aria-current="page" href="#">查詢訂單</router-link>
                             </li>
                             <!-- 常見問題 -->
                             <li class="nav-item">
@@ -78,6 +82,12 @@ export default {
 </script>
 
 <style>
+  .marquee {
+    background-color: #333;
+  }
+  .marqueeText {
+    font-size: 12px;
+  }
   .logo {
     width: 100px
   }

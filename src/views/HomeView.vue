@@ -172,8 +172,8 @@ export default {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products`
       this.$http.get(api).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           res.data.products.forEach((i, index) => {
             if (index < 8) {
               this.newProducts.push(i)
@@ -436,7 +436,7 @@ export default {
   }
   @media (max-width:990px) {
     .swiperArea{
-      padding-top: 68px;
+      padding-top: 103px;
     }
     .pcBanner {
       display: none;

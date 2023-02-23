@@ -141,8 +141,8 @@ export default {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(api).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           this.cartInfo = res.data.data.carts
           this.fTotal = res.data.data.final_total
           this.oTotal = res.data.data.total
@@ -154,8 +154,8 @@ export default {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`
       this.$http.delete(api).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           console.log('delCartItem', res.data)
           this.emitter.emit('connectCart')
           this.getCarts()
@@ -214,8 +214,8 @@ export default {
         code: inputCode
       }
       this.$http.post(api, { data: coupon }).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           this.getCarts()
           this.couponValid = true
           this.emitter.emit('connectCoupon', {

@@ -73,8 +73,8 @@ export default {
         qty: this.tempQty
       }
       this.$http.post(api, { data: cart }).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           console.log('addcart', res.data)
           this.emitter.emit('triggerCart')
           this.emitter.emit('push-message', {

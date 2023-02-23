@@ -6,7 +6,7 @@
 
 <style>
   .page {
-    padding-top: 68px;
+    padding-top: 103px;
   }
   .pageBanner {
     background-image: url('../assets/img/pagebanner.jpg');

@@ -1,7 +1,7 @@
 <template>
   <!-- 讀取效果 -->
   <LoadingComponent :active="isLoading"></LoadingComponent>
-  <div class="rootProduct p-5 my-5">
+  <div class="rootCoupon p-5 my-5">
       <h3 class="rootPageTitle fw-bolder">優惠券管理</h3>
       <div class="text-end">
           <button class="btn sty3" type="button" @click="openCouponModal(true)">
@@ -144,6 +144,7 @@ export default {
       this.isLoading = true
       this.$http.delete(url).then((res) => {
         console.log(res, this.tempCoupon)
+        this.isLoading = false
         if (res.data.success) {
           this.emitter.emit('push-message', {
             style: 'success',
@@ -187,7 +188,7 @@ export default {
     background-color: #ED7120;
     color: #fff;
   }
-  .rootProduct {
+  .rootCoupon {
     box-shadow: 2px 2px 8px 2px #ccc;
     background-color: #fff;
   }
@@ -195,24 +196,19 @@ export default {
     color: #23316E;
   }
   @media(max-width:990px) {
-    .rootProduct th {
-        width:150px
-    }
-    .rootProduct th.rootProductname {
-        width: 200px;
-    }
-  }
-  @media(max-width:768px) {
-    .rootProduct th {
+    .rootCoupon th {
         display: none;
     }
-    .rootProduct tbody tr {
+    .rootCoupon td {
+      width: 100%;
+    }
+    .rootCoupon tbody tr {
         display: flex;
         flex-direction: column;
         border: 1px solid #ccc;
         margin-bottom: 25px;
     }
-    .rootProduct tbody tr td:before{
+    .rootCoupon tbody tr td:before{
         content: attr(data-title);
         display: inline-block;
         font-weight: bold;

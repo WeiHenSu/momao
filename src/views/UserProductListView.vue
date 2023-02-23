@@ -120,8 +120,8 @@ export default {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products?page=${page}`
       this.$http.get(api).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           this.products = res.data.products
           this.pagination = res.data.pagination
           this.tempPagination = this.pagination
@@ -227,10 +227,23 @@ export default {
         color: #23316E;
         font-weight: bold;
     }
+    .leftList a::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: 18px;
+      width: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #23316E;
+    }
     .leftList a:hover {
         color: #fff;
         background-color: #23316E;
         transition: 0.3s ease all;
+    }
+    .leftList li{
+        margin-bottom: 10px;
     }
     .leftList li.active a{
         color: #fff;
@@ -271,58 +284,42 @@ export default {
         color: #23316E;
         transition: 0.3s ease all;
     }
-
+    @media (max-width:1280px) {
+        .productText a {
+            font-size: 16px;
+        }
+    }
     @media (max-width:990px){
         .leftTitle {
             display: none !important;
         }
         .leftList {
             display: flex;
+            flex-flow: row wrap;
         }
         .leftList li {
-            flex: 1;
+            width: 33.3%;
             position: relative;
         }
-        .leftList li::before {
+        .leftList li:first-child::before{
             content: '';
             position: absolute;
-            height: 20px;
-            width: 1px;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #23316E;
-        }
-        .leftList li:first-child::after{
-            content: '';
-            position: absolute;
-            height: 20px;
-            width: 1px;
+            height: 18px;
+            width: 2px;
             left: 0;
             top: 50%;
             transform: translateY(-50%);
             background-color: #23316E;
         }
         .leftList li a {
-            padding: 5px 0;
+            padding: 8px 0;
             text-align: center;
-        }
-    }
-    @media (max-width:1280px) {
-        .productText a {
-            font-size: 16px;
         }
     }
     @media (max-width:576px){
         .productList {
             margin: 0;
             padding: 0;
-        }
-        .leftList li::before {
-            display: none;
-        }
-        .leftList li::after {
-            display: none;
         }
         .leftList li a {
             font-size: 14px;

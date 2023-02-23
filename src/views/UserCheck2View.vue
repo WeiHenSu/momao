@@ -149,8 +149,8 @@ export default {
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(api).then((res) => {
+        this.isLoading = false
         if (res.data.success) {
-          this.isLoading = false
           this.cart = res.data.data.carts
           this.fTotal = res.data.data.final_total
           this.oTotal = res.data.data.total

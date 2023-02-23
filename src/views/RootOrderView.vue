@@ -117,19 +117,19 @@ export default {
     -webkit-box-orient: vertical;
   }
   @media(max-width:990px) {
-    .rootOrder th {
+    .rootTable th {
         display: none;
     }
-    .rootOrder td {
+    .rootTable td {
         width: 100%;
     }
-    .rootOrder tbody tr {
+    .rootTable tbody tr {
         display: flex;
         flex-direction: column;
         border: 1px solid #ccc;
         margin-bottom: 25px;
     }
-    .rootOrder tbody tr td:before{
+    .rootTable tbody tr td:before{
         content: attr(data-title);
         display: inline-block;
         font-weight: bold;

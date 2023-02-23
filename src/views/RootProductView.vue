@@ -190,15 +190,10 @@ export default {
   }
   @media(max-width:990px) {
     .rootProduct th {
-        width:150px
-    }
-    .rootProduct th.rootProductname {
-        width: 200px;
-    }
-  }
-  @media(max-width:768px) {
-    .rootProduct th {
         display: none;
+    }
+    .rootProduct td {
+        width: 100%;
     }
     .rootProduct tbody tr {
         display: flex;

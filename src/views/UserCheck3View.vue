@@ -141,8 +141,8 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`
       this.$http.get(url)
         .then((res) => {
+          this.isLoading = false
           if (res.data.success) {
-            this.isLoading = false
             this.order = res.data.order
             this.fTotal = res.data.order.total
             console.log('getOrder', this.order)
@@ -155,8 +155,8 @@ export default {
       this.$http.post(url)
         .then((res) => {
           console.log(res)
+          this.isLoading = false
           if (res.data.success) {
-            this.isLoading = false
             this.getOrder()
           }
         })
