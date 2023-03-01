@@ -229,7 +229,6 @@ export default {
     .dropdown-menu-right {
         width: 100%;
         min-width: unset;
-        transform: translateX(0%);
         border-top: unset;
         border-bottom: unset;
         border-radius: unset;
