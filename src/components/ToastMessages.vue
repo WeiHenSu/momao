@@ -29,7 +29,6 @@ export default {
   .toastPosition {
     position: absolute;
     right: 0;
-    top: 0;
-    transform: translateX(50%);
+    bottom: 0;
   }
 </style>

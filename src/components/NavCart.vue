@@ -147,7 +147,9 @@ export default {
   .dropdown-menu-right{
     min-width: 600px;
     position: absolute;
-    transform: translateX(-50%);
+    left: unset !important;
+    right: 0;
+    transform: translateX(0%);
   }
   .btn-cart .badge{
     position: absolute;
